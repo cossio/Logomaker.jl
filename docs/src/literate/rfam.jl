@@ -26,7 +26,7 @@ nothing #hide
 function onehot(s::AbstractString)
     return reshape(collect(s), 1, length(s)) .== collect(NTs)
 end
-X = reshape(reduce(hcat, onehot.(seqs)), 5, :, length(seqs))
+X = reshape(reduce(hcat, onehot.(seqs)), length(NTs), :, length(seqs))
 nothing #hide
 
 # Compute conservation scores
