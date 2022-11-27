@@ -2,6 +2,7 @@ module Logomaker
 
 using PythonCall: pynew, pycopy!, pyimport, pylist, pytable
 using DataFrames: DataFrame
+using LazyArtifacts: LazyArtifacts, @artifact_str
 
 const logomaker = pynew()
 const pandas = pynew()
@@ -53,6 +54,10 @@ function style_xticks!(
         fmt = fmt,
         rotation = rotation
     )
+end
+
+function __example_fasta()
+    return joinpath(artifact"RF00162_trimmed", "RF00162-trimmed.afa")
 end
 
 end # module

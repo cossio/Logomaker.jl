@@ -2,17 +2,15 @@
 # SequenceLogos examples with RFAM
 =#
 
-using Logomaker: Logo
-using LazyArtifacts: LazyArtifacts, @artifact_str
+using Logomaker: Logo, __example_fasta
 using Statistics: mean
 using LogExpFunctions: xlogx
 import FASTX
 using Base: front
 
-# Fetch RNA family alignment RF00162 from RFAM (pre-stored as a Github Gist)
-# (Trimmed means insertions have been removed).
+# Fetch RNA family alignment RF00162 from RFAM, trimmed by removing insertions.
 
-fasta_path = joinpath(artifact"RF00162_trimmed", "RF00162-trimmed.afa")
+fasta_path = __example_fasta()
 records = collect(FASTX.FASTA.Reader(open(fasta_path)))
 seqs = FASTX.sequence.(records)
 nothing #hide
