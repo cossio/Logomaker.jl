@@ -1,2 +1,4 @@
 using Test: @test
-import Logomaker
+
+# use doc file as test ... just check that it runs in all platforms tested on CI
+include("../docs/src/literate/rfam.jl")
