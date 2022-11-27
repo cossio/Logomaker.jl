@@ -1,0 +1,5 @@
+channels = ["bioconda"]
+
+[deps]
+logomaker = "0.8"
+pandas = "1"
