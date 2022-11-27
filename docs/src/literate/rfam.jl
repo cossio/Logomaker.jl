@@ -34,7 +34,7 @@ nothing #hide
 p = reshape(mean(X; dims=3), size(X)[1:2]...)
 xlog2x(x) = xlogx(x) / log(oftype(x,2))
 H = sum(-xlog2x.(p); dims=1)
-weights = cons = p .* (log2(5) .- H)
+cons = p .* (log2(5) .- H)
 nothing #hide
 
 # Plot sequence logo!
