@@ -5,6 +5,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/cossio/Logomaker.jl)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/cossio/Logomaker.jl)
 
+A Julia wrapper of the [Logomaker](https://logomaker.readthedocs.io/en/latest/index.html) Python package to plot sequence logos.
+
 ```julia
 import Logomaker
 
