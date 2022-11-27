@@ -12,7 +12,7 @@ import Logomaker
 
 # weights is a matrix containing scores, e.g. conservation.
 
-logo = Logomaker.logo(weights, collect("ACGU-"); color_scheme="classic")
+logo = Logomaker.Logo(weights, collect("ACGU-"); color_scheme="classic")
 logo.ax.set_ylim(0, log2(5))
 logo.fig
 ```

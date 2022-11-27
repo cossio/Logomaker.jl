@@ -1,6 +1,7 @@
 module Logomaker
 
-using PythonCall: pynew, pycopy!, pyimport, pylist
+using PythonCall: pynew, pycopy!, pyimport, pylist, pytable
+using DataFrames: DataFrame
 
 const logomaker = pynew()
 const pandas = pynew()
@@ -10,14 +11,16 @@ function __init__()
     pycopy!(pandas, pyimport("pandas"))
 end
 
-function logo(
+function Logo(
     weights::AbstractMatrix{<:Real}, chars::AbstractVector{<:AbstractChar};
-    positions = 1:size(weights, 2), kwargs...
+    positions::AbstractVector = 1:size(weights, 2), kwargs...
 )
-    @assert size(weights, 1) == length(chars)
-    @assert size(weights, 2) == length(positions)
-    df = pandas.DataFrame(data=weights', columns=chars, index=positions)
-    return logomaker.Logo(df; kwargs...)
+    @assert size(weights) == (length(chars), length(positions))
+    df = DataFrame(
+        Dict(Symbol(c) => w for (c, w) in zip(chars, eachrow(weights)))
+    )
+    pydf = pytable(df; index=positions)
+    return logomaker.Logo(pydf; kwargs...)
 end
 
 function style_spines!(

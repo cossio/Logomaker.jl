@@ -2,11 +2,12 @@
 # SequenceLogos examples with RFAM
 =#
 
-import Logomaker
+using Logomaker: Logo
 using LazyArtifacts: LazyArtifacts, @artifact_str
 using Statistics: mean
 using LogExpFunctions: xlogx
 import FASTX
+using Base: front
 
 # Fetch RNA family alignment RF00162 from RFAM (pre-stored as a Github Gist)
 # (Trimmed means insertions have been removed).
@@ -31,14 +32,13 @@ nothing #hide
 
 # Compute conservation scores
 
-p = reshape(mean(X; dims=3), size(X)[1:2]...)
-xlog2x(x) = xlogx(x) / log(oftype(x,2))
-H = sum(-xlog2x.(p); dims=1)
+p = reshape(mean(X; dims=3), size(X, 1), size(X, 2))
+H = sum(-xlogx.(p) / log(2); dims=1)
 cons = p .* (log2(5) .- H)
 nothing #hide
 
 # Plot sequence logo!
 
-logo = Logomaker.logo(cons, collect(NTs); color_scheme="classic")
+logo = Logo(cons, collect(NTs); color_scheme="classic")
 logo.ax.set_ylim(0, log2(5))
 logo.fig
