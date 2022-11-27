@@ -1,5 +1,5 @@
 #=
-# SequenceLogos examples with RFAM
+# Logomaker example with RFAM
 =#
 
 using Logomaker: Logo, __example_fasta
