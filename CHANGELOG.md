@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Unreleased
 
+## v1.0.1
+
 - Require pandas >= 1.4. Otherwise there is some incompatible error with numpy.
 
 ## v1.0.0
