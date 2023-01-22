@@ -6,7 +6,6 @@ using Logomaker: Logo, __example_fasta
 using Statistics: mean
 using LogExpFunctions: xlogx
 import FASTX
-using Base: front
 
 # Fetch RNA family alignment RF00162 from RFAM, trimmed by removing insertions.
 
