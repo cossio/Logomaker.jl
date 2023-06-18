@@ -5,11 +5,11 @@ using DataFrames: DataFrame
 using LazyArtifacts: LazyArtifacts, @artifact_str
 
 const logomaker = pynew()
-const pandas = pynew()
+#const pandas = pynew()
 
 function __init__()
     pycopy!(logomaker, pyimport("logomaker"))
-    pycopy!(pandas, pyimport("pandas"))
+    #pycopy!(pandas, pyimport("pandas"))
 end
 
 function Logo(
