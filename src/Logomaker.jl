@@ -1,8 +1,13 @@
 module Logomaker
 
-using PythonCall: pynew, pycopy!, pyimport, pylist, pytable
+import LazyArtifacts
 using DataFrames: DataFrame
-using LazyArtifacts: LazyArtifacts, @artifact_str
+using LazyArtifacts: @artifact_str
+using PythonCall: pycopy!
+using PythonCall: pyimport
+using PythonCall: pylist
+using PythonCall: pynew
+using PythonCall: pytable
 
 const logomaker = pynew()
 #const pandas = pynew()
