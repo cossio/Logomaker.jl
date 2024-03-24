@@ -4,6 +4,8 @@ Pkg.Registry.add(Pkg.RegistrySpec(url="https://github.com/cossio/CossioJuliaRegi
 Pkg.Registry.add("General")
 
 Pkg.add([
+    "FASTX",
+    "LogExpFunctions",
     "MyRegistrator",
     "PythonCall",
     "PythonPlot",

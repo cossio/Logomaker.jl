@@ -2,10 +2,12 @@
 # Logomaker example with RFAM
 =#
 
-using Logomaker: Logo, __example_fasta
-using Statistics: mean
-using LogExpFunctions: xlogx
 import FASTX
+import PythonPlot
+using LogExpFunctions: xlogx
+using Logomaker: __example_fasta
+using Logomaker: Logo
+using Statistics: mean
 
 # Fetch RNA family alignment RF00162 from RFAM, trimmed by removing insertions.
 fasta_path = __example_fasta()
@@ -14,19 +16,22 @@ seqs = FASTX.sequence.(records)
 
 # RNA nucleotides
 NTs = "ACGU-"
+#NTs = "ACGU⊟"
+#NTs = "ACGUX"
 
 # One-hot representation
 function onehot(s::AbstractString)
-    return reshape(collect(s), 1, length(s)) .== collect(NTs)
+    return reshape(collect(s), 1, length(s)) .== collect("ACGU-")
 end
-X = reshape(reduce(hcat, onehot.(seqs)), length(NTs), :, length(seqs))
+X = reshape(reduce(hcat, onehot.(seqs)), 5, :, length(seqs))
 
 # Compute conservation scores
-p = reshape(mean(X; dims=3), size(X, 1), size(X, 2))
+p = dropdims(mean(X; dims=3); dims=3)
 H = sum(-xlogx.(p) / log(2); dims=1)
 cons = p .* (log2(5) .- H)
 
 # Plot sequence logo!
-logo = Logo(cons, collect(NTs); color_scheme="classic")
-logo.ax.set_ylim(0, log2(5))
+fig, ax = PythonPlot.subplots(1, 1, figsize=[8, 3])
+logo = Logo(-cons, collect("ACGU⊟"); color_scheme="classic", ax)
+logo.ax.set_ylim(-log2(5), log2(5))
 logo.fig
