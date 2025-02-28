@@ -61,6 +61,10 @@ function style_xticks!(
     )
 end
 
+function list_color_schemes()
+    logomaker.list_color_schemes()
+end
+
 function __example_fasta()
     return joinpath(artifact"RF00162_trimmed", "RF00162-trimmed.afa")
 end
