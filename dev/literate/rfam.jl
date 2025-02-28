@@ -2,10 +2,12 @@
 # Logomaker example with RFAM
 =#
 
-using Logomaker: Logo, __example_fasta
+import FASTX
+import PythonCall
+using Logomaker: Logo
+using Logomaker: __example_fasta
 using Statistics: mean
 using LogExpFunctions: xlogx
-import FASTX
 
 # Fetch RNA family alignment RF00162 from RFAM, trimmed by removing insertions.
 
@@ -36,6 +38,7 @@ nothing #hide
 
 # Plot sequence logo!
 
-logo = Logo(cons, collect(NTs); color_scheme="classic")
+color_scheme = PythonCall.pydict(Dict('A' => "blue", 'C' => "orange", 'G' => "green", 'U' => "red", '-' => "black"))
+logo = Logo(cons, collect(NTs); color_scheme)
 logo.ax.set_ylim(0, log2(5))
 logo.fig
