@@ -39,6 +39,6 @@ nothing #hide
 # Plot sequence logo!
 
 color_scheme = PythonCall.pydict(Dict('A' => "blue", 'C' => "orange", 'G' => "green", 'U' => "red", '-' => "black"))
-logo = Logo(cons, collect(NTs); color_scheme="classic")
+logo = Logo(cons, collect(NTs); color_scheme)
 logo.ax.set_ylim(0, log2(5))
 logo.fig
