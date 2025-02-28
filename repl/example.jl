@@ -7,12 +7,10 @@ import PythonPlot
 import Logomaker
 import PythonCall
 using LogExpFunctions: xlogx
-using Logomaker: __example_fasta
-using Logomaker: Logo
 using Statistics: mean
 
 # Fetch RNA family alignment RF00162 from RFAM, trimmed by removing insertions.
-fasta_path = __example_fasta()
+fasta_path = Logomaker.__example_fasta()
 records = collect(FASTX.FASTA.Reader(open(fasta_path)))
 seqs = FASTX.sequence.(records)
 
@@ -35,6 +33,6 @@ cons = p .* (log2(5) .- H)
 # Plot sequence logo!
 color_scheme = PythonCall.pydict(Dict('A' => "blue", 'C' => "gold", 'G' => "green", 'U' => "red", '-' => "gray"))
 fig, ax = PythonPlot.subplots(1, 1, figsize=[8, 3])
-logo = Logo(cons, collect("ACGU-"); ax, color_scheme, font_name="Arial Rounded MT Bold")
+logo = Logomaker.Logo(cons, collect("ACGU-"); ax, color_scheme, font_name="Arial Rounded MT Bold")
 logo.ax.set_ylim(-log2(5), log2(5))
 logo.fig

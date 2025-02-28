@@ -6,11 +6,12 @@
 A Julia wrapper of the [Logomaker](https://logomaker.readthedocs.io/en/latest/index.html) Python package to plot sequence logos.
 
 ```julia
-import Logomaker
+import Logomaker, PythonCall
+
+color_scheme = PythonCall.pydict(Dict('A' => "blue", 'C' => "gold", 'G' => "green", 'U' => "red", '-' => "gray"))
 
 # weights is a matrix containing scores, e.g. conservation.
-
-logo = Logomaker.Logo(weights, collect("ACGU-"); color_scheme="classic")
+logo = Logomaker.Logo(weights, collect("ACGU-"); color_scheme)
 logo.ax.set_ylim(0, log2(5))
 logo.fig
 ```
