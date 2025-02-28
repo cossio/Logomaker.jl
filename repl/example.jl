@@ -31,7 +31,7 @@ H = sum(-xlogx.(p) / log(2); dims=1)
 cons = p .* (log2(5) .- H)
 
 # Plot sequence logo!
-color_scheme = PythonCall.pydict(Dict('A' => "blue", 'C' => "gold", 'G' => "green", 'U' => "red", '-' => "gray"))
+color_scheme = Logomaker.color_scheme('A' => "blue", 'C' => "gold", 'G' => "green", 'U' => "red", '-' => "gray")
 fig, ax = PythonPlot.subplots(1, 1, figsize=[8, 3])
 logo = Logomaker.Logo(cons, collect("ACGU-"); ax, color_scheme, font_name="Arial Rounded MT Bold")
 logo.ax.set_ylim(-log2(5), log2(5))

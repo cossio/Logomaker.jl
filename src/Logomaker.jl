@@ -4,6 +4,7 @@ import LazyArtifacts
 using DataFrames: DataFrame
 using LazyArtifacts: @artifact_str
 using PythonCall: pycopy!
+using PythonCall: pydict
 using PythonCall: pyimport
 using PythonCall: pylist
 using PythonCall: pynew
@@ -63,6 +64,10 @@ end
 
 function list_color_schemes()
     logomaker.list_color_schemes()
+end
+
+function color_scheme(pairs::Pair{<:AbstractChar, <:AbstractString}...)
+    return pydict(Dict(pairs))
 end
 
 function __example_fasta()
