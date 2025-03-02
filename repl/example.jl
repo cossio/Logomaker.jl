@@ -34,5 +34,5 @@ cons = p .* (log2(5) .- H)
 color_scheme = Logomaker.color_scheme('A' => "blue", 'C' => "gold", 'G' => "green", 'U' => "red", '-' => "gray")
 fig, ax = PythonPlot.subplots(1, 1, figsize=[8, 3])
 logo = Logomaker.Logo(cons, collect("ACGU-"); ax, color_scheme, font_name="Arial Rounded MT Bold")
-logo.ax.set_ylim(-log2(5), log2(5))
+logo.ax.set_ylim(0, log2(5))
 logo.fig
