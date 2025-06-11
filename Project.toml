@@ -1,7 +1,7 @@
 name = "Logomaker"
 uuid = "3e22dfff-eee4-477b-ac6a-6f7f49e5ccf0"
 authors = "Jorge Fernandez-de-Cossio-Diaz <j.cossio.diaz@gmail.com>"
-version = "2.0.2"
+version = "2.0.3"
 
 [deps]
 CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
@@ -12,5 +12,6 @@ PythonCall = "6099a3de-0909-46bc-b1f4-468b9a2dfc0d"
 [compat]
 CondaPkg = "0.2"
 DataFrames = "1"
+LazyArtifacts = "1.11"
 PythonCall = "0.9"
 julia = "1.6"
