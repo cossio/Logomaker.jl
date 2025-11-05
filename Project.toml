@@ -3,6 +3,9 @@ uuid = "3e22dfff-eee4-477b-ac6a-6f7f49e5ccf0"
 authors = "Jorge Fernandez-de-Cossio-Diaz <j.cossio.diaz@gmail.com>"
 version = "2.0.3"
 
+[workspace]
+projects = ["test"]
+
 [deps]
 CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
