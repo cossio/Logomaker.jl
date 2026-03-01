@@ -19,3 +19,7 @@ logo.fig
 ![Example sequence logo](/example.svg)
 
 See the docs for a full example.
+
+## Related
+
+* https://github.com/cossio/MakieSequenceLogos.jl
