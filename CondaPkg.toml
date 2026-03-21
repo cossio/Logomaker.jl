@@ -2,3 +2,4 @@ channels = ["bioconda"]
 
 [deps]
 logomaker = "0.8.*"
+libexpat = ">=2.7"
