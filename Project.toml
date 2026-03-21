@@ -4,7 +4,7 @@ authors = "Jorge Fernandez-de-Cossio-Diaz <j.cossio.diaz@gmail.com>"
 version = "2.0.4-DEV"
 
 [workspace]
-projects = ["test"]
+projects = ["test", "docs"]
 
 [deps]
 CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
