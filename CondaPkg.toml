@@ -1,4 +1,4 @@
-channels = ["bioconda"]
+channels = ["conda-forge", "bioconda"]
 
 [deps]
 logomaker = "0.8.*"
