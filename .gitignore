@@ -27,3 +27,5 @@ docs/site/
 
 .DS_Store
 .vscode/
+
+Manifest.toml
