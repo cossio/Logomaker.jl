@@ -20,6 +20,7 @@ jobs:
         include:
           - os: macOS-latest
             arch: aarch64
+            version: '1.12'
         exclude:
           - os: macOS-latest
             arch: x64
