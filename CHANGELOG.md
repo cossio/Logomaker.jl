@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Unreleased
 
+- Improve README, package docstrings, and documentation pages.
+
 ## v2.0.0
 
 - Remove unused `pandas` dependency from `CondaPkg.toml`.

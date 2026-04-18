@@ -5,6 +5,15 @@
 
 A Julia wrapper of the [Logomaker](https://logomaker.readthedocs.io/en/latest/index.html) Python package to plot sequence logos.
 
+## Installation
+
+```julia
+import Pkg
+Pkg.add("Logomaker")
+```
+
+## Quick start
+
 ```julia
 import Logomaker, PythonCall
 
@@ -18,7 +27,18 @@ logo.fig
 
 ![Example sequence logo](/example.svg)
 
-See the docs for a full example.
+For a complete example based on an RFAM alignment, see:
+
+- stable docs: <https://cossio.github.io/Logomaker.jl/stable/>
+- dev docs: <https://cossio.github.io/Logomaker.jl/dev/>
+
+## Main API
+
+- `Logomaker.Logo`
+- `Logomaker.style_spines!`
+- `Logomaker.style_xticks!`
+- `Logomaker.list_color_schemes`
+- `Logomaker.color_scheme`
 
 ## Related
 
