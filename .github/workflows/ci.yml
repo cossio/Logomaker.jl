@@ -15,7 +15,7 @@ jobs:
           - ubuntu-latest
           - windows-latest
         arch:
-          - x64
+          - default
         include:
           - os: macos-14
             arch: aarch64
