@@ -19,7 +19,7 @@ jobs:
         arch:
           - default
         include:
-          - os: macos-14
+          - os: macos-latest
             arch: aarch64
             version: '1.12'
     steps:
